@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Congratulations! You've Won 2 Lakhs</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 50px;
+        }
+        .popup {
+            background-color: green;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(0,0,0,0.5);
+            width: 50%;
+            margin: 0 auto;
+        }
+        .button {
+            background-color: blue;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        .payment-link {
+            color: yellow;
+            text-decoration: underline;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        /* Style for the "You Are Trapped" message */
+        .trapped-message {
+            display: none;
+            background-color: #ff3333;
+            color: white;
+            padding: 50px;
+            border-radius: 10px;
+            margin-top: 50px;
+        }
+        .message {
+            font-size: 30px;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+        .warning {
+            background-color: black;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(0,0,0,0.5);
+            margin-top: 50px;
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Main Content -->
+    <h1>Congratulations! You've Won 2 Lakhs!</h1>
+    <div class="popup">
+        <h2>Prize Details</h2>
+        <p>You've been selected as the winner of our Grand Giveaway.</p>
+        <p>Your prize is ₹2,00,000!</p>
+        <p>To claim your prize, please click below.</p>
+        <button class="button" onclick="claimPrize()">Claim Your Prize</button>
+        <br>
+        <p>To complete the prize transfer, visit our payment page: <a href="#" class="payment-link" onclick="openPaymentPage()">Make Payment</a></p>
+    </div>
+
+    <!-- Trapped Message (Initially Hidden) -->
+    <div class="trapped-message" id="trappedMessage">
+        <h1>You've Been Trapped!</h1>
+        <div class="message">This is a fake prize scam. You've been redirected to a fraudulent payment page.</div>
+        <div class="warning">Never trust unsolicited prize claims or unknown links. Always be cautious online!</div>
+    </div>
+
+    <script>
+        // Function to simulate prize claim
+        function claimPrize() {
+            alert("Congratulations! Your ₹2,00,000 prize has been transferred to your account.");
+            window.location.reload(); // Reloads the page to simulate completion
+        }
+
+        // Function to display the "trapped" message when payment link is clicked
+        function openPaymentPage() {
+            // Hide the main content and show the trapped message
+            document.querySelector('.popup').style.display = 'none';
+            document.getElementById('trappedMessage').style.display = 'block';
+        }
+
+        // Simulating a fake timer to increase urgency
+        let countdown = 10;
+        let timer = setInterval(function() {
+            if (countdown <= 0) {
+                clearInterval(timer);
+            } else {
+                console.log("Prize claim countdown: " + countdown + " seconds");
+            }
+            countdown--;
+        }, 1000);
+    </script>
+</body>
+</html>
